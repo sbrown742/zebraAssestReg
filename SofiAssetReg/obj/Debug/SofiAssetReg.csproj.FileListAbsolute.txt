@@ -1,0 +1,11 @@
+C:\Users\stephen\source\repos\SofiAssetReg\SofiAssetReg\bin\Debug\SofiAssetReg.exe.config
+C:\Users\stephen\source\repos\SofiAssetReg\SofiAssetReg\bin\Debug\SofiAssetReg.exe
+C:\Users\stephen\source\repos\SofiAssetReg\SofiAssetReg\bin\Debug\SofiAssetReg.pdb
+C:\Users\stephen\source\repos\SofiAssetReg\SofiAssetReg\obj\Debug\SofiAssetReg.csprojResolveAssemblyReference.cache
+C:\Users\stephen\source\repos\SofiAssetReg\SofiAssetReg\obj\Debug\SofiAssetReg.Form1.resources
+C:\Users\stephen\source\repos\SofiAssetReg\SofiAssetReg\obj\Debug\SofiAssetReg.Properties.Resources.resources
+C:\Users\stephen\source\repos\SofiAssetReg\SofiAssetReg\obj\Debug\SofiAssetReg.csproj.GenerateResource.Cache
+C:\Users\stephen\source\repos\SofiAssetReg\SofiAssetReg\obj\Debug\SofiAssetReg.csproj.CoreCompileInputs.cache
+C:\Users\stephen\source\repos\SofiAssetReg\SofiAssetReg\obj\Debug\SofiAssetReg.exe
+C:\Users\stephen\source\repos\SofiAssetReg\SofiAssetReg\obj\Debug\SofiAssetReg.pdb
+C:\Users\stephen\source\repos\SofiAssetReg\SofiAssetReg\bin\Debug\labels\label1.lbl
