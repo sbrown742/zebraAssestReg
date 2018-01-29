@@ -2,11 +2,11 @@
 <SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="SofiAssetReg.Properties" GeneratedClassName="Settings">
   <Profiles />
   <Settings>
-    <Setting Name="Hostname" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
+    <Setting Name="Server" Type="System.String" Scope="User">
+      <Value Profile="(Default)">http://54.206.34.58:82</Value>
     </Setting>
     <Setting Name="ApiKey" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
+      <Value Profile="(Default)">Ytm1VIhM2ai7fewNDR0jFYeZML2wPQCvYadotN99FsFMkopcpACMTF8s+735ByUTltnrSm+Jvkg2Ek67NoxFz4Lpu6W1ObL4/zVIY81lKwzkKywtgHISXA==</Value>
     </Setting>
     <Setting Name="LabelTemplate" Type="System.String" Scope="User">
       <Value Profile="(Default)" />

@@ -12,7 +12,7 @@ namespace SofiAssetReg.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "15.5.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "15.3.0.0")]
     internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
         
         private static Settings defaultInstance = ((Settings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Settings())));
@@ -25,19 +25,20 @@ namespace SofiAssetReg.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string Hostname {
+        [global::System.Configuration.DefaultSettingValueAttribute("http://54.206.34.58:82")]
+        public string Server {
             get {
-                return ((string)(this["Hostname"]));
+                return ((string)(this["Server"]));
             }
             set {
-                this["Hostname"] = value;
+                this["Server"] = value;
             }
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Ytm1VIhM2ai7fewNDR0jFYeZML2wPQCvYadotN99FsFMkopcpACMTF8s+735ByUTltnrSm+Jvkg2Ek67N" +
+            "oxFz4Lpu6W1ObL4/zVIY81lKwzkKywtgHISXA==")]
         public string ApiKey {
             get {
                 return ((string)(this["ApiKey"]));

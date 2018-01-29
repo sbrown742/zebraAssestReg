@@ -1,0 +1,10 @@
+C:\Users\Stephen\Desktop\SofiAssestReg\OstendoAPI\bin\Debug\OstendoAPI.dll
+C:\Users\Stephen\Desktop\SofiAssestReg\OstendoAPI\bin\Debug\OstendoAPI.pdb
+C:\Users\Stephen\Desktop\SofiAssestReg\OstendoAPI\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Stephen\Desktop\SofiAssestReg\OstendoAPI\bin\Debug\RestSharp.dll
+C:\Users\Stephen\Desktop\SofiAssestReg\OstendoAPI\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Stephen\Desktop\SofiAssestReg\OstendoAPI\bin\Debug\RestSharp.xml
+C:\Users\Stephen\Desktop\SofiAssestReg\OstendoAPI\obj\Debug\OstendoAPI.csprojResolveAssemblyReference.cache
+C:\Users\Stephen\Desktop\SofiAssestReg\OstendoAPI\obj\Debug\OstendoAPI.csproj.CoreCompileInputs.cache
+C:\Users\Stephen\Desktop\SofiAssestReg\OstendoAPI\obj\Debug\OstendoAPI.dll
+C:\Users\Stephen\Desktop\SofiAssestReg\OstendoAPI\obj\Debug\OstendoAPI.pdb
