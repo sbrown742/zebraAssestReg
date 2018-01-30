@@ -9,10 +9,13 @@
       <Value Profile="(Default)">Ytm1VIhM2ai7fewNDR0jFYeZML2wPQCvYadotN99FsFMkopcpACMTF8s+735ByUTltnrSm+Jvkg2Ek67NoxFz4Lpu6W1ObL4/zVIY81lKwzkKywtgHISXA==</Value>
     </Setting>
     <Setting Name="LabelTemplate" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
+      <Value Profile="(Default)">.\labels\SofiLabelV2.prn</Value>
     </Setting>
     <Setting Name="PrinterName" Type="System.String" Scope="User">
       <Value Profile="(Default)">ZDesigner GK420t</Value>
+    </Setting>
+    <Setting Name="SerialFormat" Type="System.String" Scope="User">
+      <Value Profile="(Default)">{{MODEL}}/{{MAC2}}</Value>
     </Setting>
   </Settings>
 </SettingsFile>
