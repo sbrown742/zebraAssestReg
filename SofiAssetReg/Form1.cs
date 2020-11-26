@@ -1,16 +1,16 @@
-﻿using System;
+﻿using Microsoft.VisualBasic.FileIO;
+using Nustache.Core;
+using OstendoAPI.Api;
+using OstendoAPI.Client;
+using OstendoAPI.Model;
+using SofiAssetReg.Properties;
+using System;
 using System.Drawing;
 using System.Drawing.Printing;
 using System.IO;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using Microsoft.VisualBasic.FileIO;
-using Nustache.Core;
-using OstendoAPI.Api;
-using OstendoAPI.Client;
-using OstendoAPI.Model;
-using SofiAssetReg.Properties;
 
 namespace SofiAssetReg
 {
@@ -27,7 +27,7 @@ namespace SofiAssetReg
             lblLabelModel.DataBindings.Add(new Binding("Text", regFields, "model"));
             lblLabelYear.DataBindings.Add(new Binding("Text", regFields, "year"));
             lblLabelZwave.DataBindings.Add(new Binding("Text", regFields, "zwave"));
-            lblLabelImei.DataBindings.Add(new Binding("Text", regFields, "imei"));
+            lblLabelPrefix.DataBindings.Add(new Binding("Text", regFields, "serialPrefix"));
             lblLabelMac.DataBindings.Add(new Binding("Text", regFields, "mac"));
             lblLabelSerial.DataBindings.Add(new Binding("Text", regFields, "serial"));
         }
@@ -46,7 +46,8 @@ namespace SofiAssetReg
         {
             txtMac.BackColor = Color.LightGreen;
             txtZwave.BackColor = Color.White;
-            txtImei.BackColor = Color.White;
+            txtSnPrefix.BackColor = Color.White;
+            txtImie.BackColor = Color.White;
             txtSerial.BackColor = Color.White;
         }
 
@@ -54,7 +55,8 @@ namespace SofiAssetReg
         {
             txtMac.BackColor = Color.White;
             txtZwave.BackColor = Color.LightGreen;
-            txtImei.BackColor = Color.White;
+            txtSnPrefix.BackColor = Color.White;
+            txtImie.BackColor = Color.White;
             txtSerial.BackColor = Color.White;
         }
 
@@ -62,7 +64,8 @@ namespace SofiAssetReg
         {
             txtMac.BackColor = Color.White;
             txtZwave.BackColor = Color.White;
-            txtImei.BackColor = Color.LightGreen;
+            txtSnPrefix.BackColor = Color.LightGreen;
+            txtImie.BackColor = Color.White;
             txtSerial.BackColor = Color.White;
         }
 
@@ -70,8 +73,18 @@ namespace SofiAssetReg
         {
             txtMac.BackColor = Color.White;
             txtZwave.BackColor = Color.White;
-            txtImei.BackColor = Color.White;
+            txtSnPrefix.BackColor = Color.White;
+            txtImie.BackColor = Color.White;
             txtSerial.BackColor = Color.LightGreen;
+        }
+
+        private void txtImie_Enter(object sender, EventArgs e)
+        {
+            txtMac.BackColor = Color.White;
+            txtZwave.BackColor = Color.White;
+            txtSnPrefix.BackColor = Color.White;
+            txtImie.BackColor = Color.LightGreen;
+            txtSerial.BackColor = Color.White;
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -95,21 +108,21 @@ namespace SofiAssetReg
                 if (pd.PrinterSettings.IsValid)
                 {
                     var bytes = Encoding.ASCII.GetBytes(labelFile);
-                // Send a printer-specific to the printer.
-                RawPrinterHelper.SendBytesToPrinter(pd.PrinterSettings.PrinterName, bytes, bytes.Length);
+                    // Send a printer-specific to the printer.
+                    RawPrinterHelper.SendBytesToPrinter(pd.PrinterSettings.PrinterName, bytes, bytes.Length);
                 }
                 else
                 {
-                    MessageBox.Show("Printer Not Found: \"" + Settings.Default.PrinterName+"\"", "Error", MessageBoxButtons.OK);
+                    MessageBox.Show("Printer Not Found: \"" + Settings.Default.PrinterName + "\"", "Error", MessageBoxButtons.OK);
                 }
 
-                
+
             }
             else
             {
-                MessageBox.Show("Template File Not Found: \""+Settings.Default.LabelTemplate+"\"", "Error", MessageBoxButtons.OK);
+                MessageBox.Show("Template File Not Found: \"" + Settings.Default.LabelTemplate + "\"", "Error", MessageBoxButtons.OK);
             }
-           
+
         }
 
         private void textBox_KeyPress(object sender, KeyPressEventArgs e)
@@ -138,11 +151,17 @@ namespace SofiAssetReg
 
                 if (ActiveControl == txtZwave)
                 {
-                    ActiveControl = txtImei;
+                    ActiveControl = txtImie;
                     return;
                 }
 
-                if (ActiveControl == txtImei)
+                if (ActiveControl == txtImie)
+                {
+                    ActiveControl = txtSnPrefix;
+                    return;
+                }
+
+                if (ActiveControl == txtSnPrefix)
                     if (chkSerialGenerate.Checked)
                     {
                         done = true;
@@ -164,7 +183,7 @@ namespace SofiAssetReg
                     if (chkRegisterAsset.Checked)
                     {
                         registerItem();
-                    
+
                     }
 
                     //Clear Fields
@@ -172,7 +191,6 @@ namespace SofiAssetReg
                     {
                         txtMac.Text = "";
                         txtZwave.Text = "";
-                        txtImei.Text = "";
                         txtSerial.Text = "";
                     }
 
@@ -205,7 +223,7 @@ namespace SofiAssetReg
 
         private void printerSettingsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-           
+
 
 
             var pd = new PrintDialog();
@@ -253,6 +271,8 @@ namespace SofiAssetReg
         private void textBox6_TextChanged(object sender, EventArgs e)
         {
             regFields.year = txtYear.Text;
+            if (chkSerialGenerate.Checked)
+                txtSerial.Text = regFields.serial;
         }
 
         private void textBox5_TextChanged(object sender, EventArgs e)
@@ -272,11 +292,22 @@ namespace SofiAssetReg
         private void textBox2_TextChanged(object sender, EventArgs e)
         {
             regFields.zwave = txtZwave.Text;
+            if (chkSerialGenerate.Checked)
+                txtSerial.Text = regFields.serial;
+        }
+
+        private void txtImie_TextChanged(object sender, EventArgs e)
+        {
+            regFields.imei = txtImie.Text;
+            if (chkSerialGenerate.Checked)
+                txtSerial.Text = regFields.serial;
         }
 
         private void textBox3_TextChanged(object sender, EventArgs e)
         {
-            regFields.imei = txtImei.Text;
+            regFields.serialPrefix = txtSnPrefix.Text;
+            if (chkSerialGenerate.Checked)
+                txtSerial.Text = regFields.serial;
         }
 
         private void textBox4_TextChanged(object sender, EventArgs e)
@@ -317,7 +348,7 @@ namespace SofiAssetReg
                         {
                             //Processing row
                             string[] fields = parser.ReadFields();
-                            if (fields.Length < 4 && !(fields.Contains("MAC")&&fields.Contains("ZWAVE") && fields.Contains("IMEI")&& fields.Contains("SERIAL")))
+                            if (fields.Length < 4 && !(fields.Contains("MAC") && fields.Contains("ZWAVE") && fields.Contains("IMEI") && fields.Contains("SERIAL")))
 
                             {
                                 MessageBox.Show("Fields Missing", "Error", MessageBoxButtons.OK);
@@ -331,7 +362,7 @@ namespace SofiAssetReg
 
                                     txtZwave.Text = line[0];
                                     txtMac.Text = line[1];
-                                    txtImei.Text = line[2];
+                                    txtImie.Text = line[2];
 
                                     if (!chkSerialGenerate.Checked)
                                     {
@@ -356,14 +387,16 @@ namespace SofiAssetReg
 
 
                     }
-                    
+
                 }
                 catch (Exception exception)
                 {
                     MessageBox.Show("Error Importing: \"" + exception.Message + "\"", "Error", MessageBoxButtons.OK);
-            
+
                 }
             }
         }
+
+
     }
 }

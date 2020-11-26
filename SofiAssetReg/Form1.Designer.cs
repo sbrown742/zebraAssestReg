@@ -43,9 +43,9 @@
             this.txtBatchFile = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.lblLabelPrefix = new System.Windows.Forms.Label();
             this.lblLabelSerial = new System.Windows.Forms.Label();
             this.lblLabelMac = new System.Windows.Forms.Label();
-            this.lblLabelImei = new System.Windows.Forms.Label();
             this.lblLabelZwave = new System.Windows.Forms.Label();
             this.lblLabelModel = new System.Windows.Forms.Label();
             this.lblLabelYear = new System.Windows.Forms.Label();
@@ -56,13 +56,15 @@
             this.chkRegisterAsset = new System.Windows.Forms.CheckBox();
             this.chkClearFields = new System.Windows.Forms.CheckBox();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.label9 = new System.Windows.Forms.Label();
+            this.txtImie = new System.Windows.Forms.TextBox();
             this.txtMac = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.txtZwave = new System.Windows.Forms.TextBox();
-            this.txtImei = new System.Windows.Forms.TextBox();
+            this.txtSnPrefix = new System.Windows.Forms.TextBox();
             this.txtSerial = new System.Windows.Forms.TextBox();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
@@ -210,9 +212,9 @@
             // 
             this.panel4.BackColor = System.Drawing.Color.White;
             this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel4.Controls.Add(this.lblLabelPrefix);
             this.panel4.Controls.Add(this.lblLabelSerial);
             this.panel4.Controls.Add(this.lblLabelMac);
-            this.panel4.Controls.Add(this.lblLabelImei);
             this.panel4.Controls.Add(this.lblLabelZwave);
             this.panel4.Controls.Add(this.lblLabelModel);
             this.panel4.Controls.Add(this.lblLabelYear);
@@ -222,12 +224,26 @@
             this.panel4.Size = new System.Drawing.Size(208, 144);
             this.panel4.TabIndex = 25;
             // 
+            // lblLabelPrefix
+            // 
+            this.lblLabelPrefix.AutoSize = true;
+            this.lblLabelPrefix.BackColor = System.Drawing.Color.Transparent;
+            this.lblLabelPrefix.Font = new System.Drawing.Font("Arial Rounded MT Bold", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLabelPrefix.ForeColor = System.Drawing.SystemColors.Window;
+            this.lblLabelPrefix.Location = new System.Drawing.Point(47, 70);
+            this.lblLabelPrefix.Margin = new System.Windows.Forms.Padding(0);
+            this.lblLabelPrefix.Name = "lblLabelPrefix";
+            this.lblLabelPrefix.Size = new System.Drawing.Size(30, 11);
+            this.lblLabelPrefix.TabIndex = 38;
+            this.lblLabelPrefix.Text = "12345";
+            this.lblLabelPrefix.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
             // lblLabelSerial
             // 
             this.lblLabelSerial.AutoSize = true;
             this.lblLabelSerial.BackColor = System.Drawing.Color.Transparent;
             this.lblLabelSerial.Font = new System.Drawing.Font("Arial Rounded MT Bold", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLabelSerial.Location = new System.Drawing.Point(43, 123);
+            this.lblLabelSerial.Location = new System.Drawing.Point(43, 119);
             this.lblLabelSerial.Margin = new System.Windows.Forms.Padding(0);
             this.lblLabelSerial.Name = "lblLabelSerial";
             this.lblLabelSerial.Size = new System.Drawing.Size(30, 11);
@@ -240,7 +256,7 @@
             this.lblLabelMac.AutoSize = true;
             this.lblLabelMac.BackColor = System.Drawing.Color.Transparent;
             this.lblLabelMac.Font = new System.Drawing.Font("Arial Rounded MT Bold", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLabelMac.Location = new System.Drawing.Point(43, 108);
+            this.lblLabelMac.Location = new System.Drawing.Point(43, 102);
             this.lblLabelMac.Margin = new System.Windows.Forms.Padding(0);
             this.lblLabelMac.Name = "lblLabelMac";
             this.lblLabelMac.Size = new System.Drawing.Size(30, 11);
@@ -248,29 +264,16 @@
             this.lblLabelMac.Text = "12345";
             this.lblLabelMac.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // lblLabelImei
-            // 
-            this.lblLabelImei.AutoSize = true;
-            this.lblLabelImei.BackColor = System.Drawing.Color.Transparent;
-            this.lblLabelImei.Font = new System.Drawing.Font("Arial Rounded MT Bold", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLabelImei.Location = new System.Drawing.Point(43, 92);
-            this.lblLabelImei.Margin = new System.Windows.Forms.Padding(0);
-            this.lblLabelImei.Name = "lblLabelImei";
-            this.lblLabelImei.Size = new System.Drawing.Size(30, 11);
-            this.lblLabelImei.TabIndex = 36;
-            this.lblLabelImei.Text = "12345";
-            this.lblLabelImei.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
             // lblLabelZwave
             // 
             this.lblLabelZwave.AutoSize = true;
             this.lblLabelZwave.BackColor = System.Drawing.Color.Transparent;
             this.lblLabelZwave.Font = new System.Drawing.Font("Arial Rounded MT Bold", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLabelZwave.Location = new System.Drawing.Point(43, 76);
+            this.lblLabelZwave.Location = new System.Drawing.Point(43, 85);
             this.lblLabelZwave.Margin = new System.Windows.Forms.Padding(0);
             this.lblLabelZwave.Name = "lblLabelZwave";
             this.lblLabelZwave.Size = new System.Drawing.Size(30, 11);
-            this.lblLabelZwave.TabIndex = 35;
+            this.lblLabelZwave.TabIndex = 36;
             this.lblLabelZwave.Text = "12345";
             this.lblLabelZwave.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
@@ -279,7 +282,7 @@
             this.lblLabelModel.AutoSize = true;
             this.lblLabelModel.BackColor = System.Drawing.Color.Transparent;
             this.lblLabelModel.Font = new System.Drawing.Font("Arial Rounded MT Bold", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLabelModel.Location = new System.Drawing.Point(44, 61);
+            this.lblLabelModel.Location = new System.Drawing.Point(47, 55);
             this.lblLabelModel.Margin = new System.Windows.Forms.Padding(0);
             this.lblLabelModel.Name = "lblLabelModel";
             this.lblLabelModel.Size = new System.Drawing.Size(33, 11);
@@ -292,12 +295,12 @@
             this.lblLabelYear.AutoSize = true;
             this.lblLabelYear.BackColor = System.Drawing.Color.Transparent;
             this.lblLabelYear.Font = new System.Drawing.Font("Arial Rounded MT Bold", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLabelYear.Location = new System.Drawing.Point(96, 63);
+            this.lblLabelYear.Location = new System.Drawing.Point(156, 23);
             this.lblLabelYear.Margin = new System.Windows.Forms.Padding(0);
             this.lblLabelYear.Name = "lblLabelYear";
             this.lblLabelYear.Size = new System.Drawing.Size(25, 11);
             this.lblLabelYear.TabIndex = 33;
-            this.lblLabelYear.Text = "2018";
+            this.lblLabelYear.Text = "2020";
             this.lblLabelYear.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // pictureBox1
@@ -306,6 +309,7 @@
             this.pictureBox1.Location = new System.Drawing.Point(3, 3);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(200, 139);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 32;
             this.pictureBox1.TabStop = false;
             // 
@@ -369,22 +373,43 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.label9);
+            this.panel2.Controls.Add(this.txtImie);
             this.panel2.Controls.Add(this.txtMac);
             this.panel2.Controls.Add(this.label1);
             this.panel2.Controls.Add(this.label2);
             this.panel2.Controls.Add(this.label3);
             this.panel2.Controls.Add(this.label4);
             this.panel2.Controls.Add(this.txtZwave);
-            this.panel2.Controls.Add(this.txtImei);
+            this.panel2.Controls.Add(this.txtSnPrefix);
             this.panel2.Controls.Add(this.txtSerial);
             this.panel2.Location = new System.Drawing.Point(6, 69);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(484, 123);
             this.panel2.TabIndex = 1;
             // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(4, 60);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(29, 13);
+            this.label9.TabIndex = 12;
+            this.label9.Text = "IMIE";
+            // 
+            // txtImie
+            // 
+            this.txtImie.Location = new System.Drawing.Point(83, 57);
+            this.txtImie.Name = "txtImie";
+            this.txtImie.Size = new System.Drawing.Size(398, 20);
+            this.txtImie.TabIndex = 3;
+            this.txtImie.TextChanged += new System.EventHandler(this.txtImie_TextChanged);
+            this.txtImie.Enter += new System.EventHandler(this.txtImie_Enter);
+            this.txtImie.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox_KeyPress);
+            // 
             // txtMac
             // 
-            this.txtMac.Location = new System.Drawing.Point(83, 10);
+            this.txtMac.Location = new System.Drawing.Point(83, 5);
             this.txtMac.Name = "txtMac";
             this.txtMac.Size = new System.Drawing.Size(398, 20);
             this.txtMac.TabIndex = 1;
@@ -395,7 +420,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(3, 13);
+            this.label1.Location = new System.Drawing.Point(4, 12);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(71, 13);
             this.label1.TabIndex = 7;
@@ -404,7 +429,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(3, 39);
+            this.label2.Location = new System.Drawing.Point(4, 34);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(54, 13);
             this.label2.TabIndex = 8;
@@ -413,7 +438,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(3, 91);
+            this.label3.Location = new System.Drawing.Point(163, 86);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(73, 13);
             this.label3.TabIndex = 9;
@@ -422,15 +447,15 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(3, 65);
+            this.label4.Location = new System.Drawing.Point(4, 86);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(29, 13);
+            this.label4.Size = new System.Drawing.Size(51, 13);
             this.label4.TabIndex = 10;
-            this.label4.Text = "IMEI";
+            this.label4.Text = "SN Prefix";
             // 
             // txtZwave
             // 
-            this.txtZwave.Location = new System.Drawing.Point(83, 36);
+            this.txtZwave.Location = new System.Drawing.Point(83, 31);
             this.txtZwave.Name = "txtZwave";
             this.txtZwave.Size = new System.Drawing.Size(398, 20);
             this.txtZwave.TabIndex = 2;
@@ -438,22 +463,24 @@
             this.txtZwave.Enter += new System.EventHandler(this.textBox2_Enter);
             this.txtZwave.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox_KeyPress);
             // 
-            // txtImei
+            // txtSnPrefix
             // 
-            this.txtImei.Location = new System.Drawing.Point(83, 62);
-            this.txtImei.Name = "txtImei";
-            this.txtImei.Size = new System.Drawing.Size(398, 20);
-            this.txtImei.TabIndex = 3;
-            this.txtImei.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
-            this.txtImei.Enter += new System.EventHandler(this.textBox3_Enter);
-            this.txtImei.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox_KeyPress);
+            this.txtSnPrefix.Location = new System.Drawing.Point(84, 83);
+            this.txtSnPrefix.MaxLength = 6;
+            this.txtSnPrefix.Name = "txtSnPrefix";
+            this.txtSnPrefix.Size = new System.Drawing.Size(75, 20);
+            this.txtSnPrefix.TabIndex = 4;
+            this.txtSnPrefix.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
+            this.txtSnPrefix.Enter += new System.EventHandler(this.textBox3_Enter);
+            this.txtSnPrefix.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox_KeyPress);
             // 
             // txtSerial
             // 
-            this.txtSerial.Location = new System.Drawing.Point(83, 88);
+            this.txtSerial.Enabled = false;
+            this.txtSerial.Location = new System.Drawing.Point(241, 83);
             this.txtSerial.Name = "txtSerial";
-            this.txtSerial.Size = new System.Drawing.Size(398, 20);
-            this.txtSerial.TabIndex = 4;
+            this.txtSerial.Size = new System.Drawing.Size(240, 20);
+            this.txtSerial.TabIndex = 5;
             this.txtSerial.TextChanged += new System.EventHandler(this.textBox4_TextChanged);
             this.txtSerial.Enter += new System.EventHandler(this.textBox4_Enter);
             this.txtSerial.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox_KeyPress);
@@ -480,9 +507,9 @@
             // txtModel
             // 
             this.txtModel.Location = new System.Drawing.Point(45, 11);
-            this.txtModel.MaxLength = 6;
+            this.txtModel.MaxLength = 20;
             this.txtModel.Name = "txtModel";
-            this.txtModel.Size = new System.Drawing.Size(99, 20);
+            this.txtModel.Size = new System.Drawing.Size(155, 20);
             this.txtModel.TabIndex = 1;
             this.txtModel.TextChanged += new System.EventHandler(this.textBox5_TextChanged);
             this.txtModel.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox_KeyPress);
@@ -539,9 +566,10 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.menuStrip1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
-            this.Text = "SofiAsset Register";
+            this.Text = "SofiAsset Register V2";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
@@ -571,7 +599,7 @@
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.TextBox txtSerial;
-        private System.Windows.Forms.TextBox txtImei;
+        private System.Windows.Forms.TextBox txtSnPrefix;
         private System.Windows.Forms.TextBox txtZwave;
         private System.Windows.Forms.TextBox txtMac;
         private System.Windows.Forms.Label label4;
@@ -595,7 +623,6 @@
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Label lblLabelSerial;
         private System.Windows.Forms.Label lblLabelMac;
-        private System.Windows.Forms.Label lblLabelImei;
         private System.Windows.Forms.Label lblLabelZwave;
         private System.Windows.Forms.Label lblLabelModel;
         private System.Windows.Forms.Label lblLabelYear;
@@ -608,6 +635,9 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.TextBox txtImie;
+        private System.Windows.Forms.Label lblLabelPrefix;
     }
 }
 

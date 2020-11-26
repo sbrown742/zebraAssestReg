@@ -1,24 +1,24 @@
-﻿using System.Collections.Generic;
+﻿using Nustache.Core;
 using SofiAssetReg.Annotations;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Reflection;
 using System.Runtime.CompilerServices;
-using Nustache.Core;
-using SofiAssetReg.Properties;
 
 namespace SofiAssetReg
 {
     public class RegFields : INotifyPropertyChanged
     {
         private string _serial;
+        private string _serialPrefix;
         private string _year;
         private string _model;
         private string _mac;
         private string _imei;
         private string _zwave;
 
-        private string _serialFormat ="";
+        private string _serialFormat = "";
 
         private bool _initalised = false;
 
@@ -26,6 +26,7 @@ namespace SofiAssetReg
         public RegFields()
         {
             _serial = "";
+            _serialPrefix = "";
             _year = "";
             _model = "";
             _mac = "";
@@ -38,6 +39,7 @@ namespace SofiAssetReg
         {
             _serialFormat = SerialFormat;
             _serial = "";
+            _serialPrefix = "";
             _year = "";
             _model = "";
             _mac = "";
@@ -48,7 +50,7 @@ namespace SofiAssetReg
         }
 
         public bool autoSerial = true;
-        
+
 
 
         public string mac
@@ -57,14 +59,14 @@ namespace SofiAssetReg
             set
             {
                 _mac = value;
-                if(_initalised)
-                OnPropertyChanged("mac");
+                if (_initalised)
+                    OnPropertyChanged("mac");
             }
         }
 
         public string mac2
         {
-            get { return _mac.Replace(":",""); }
+            get { return _mac.Replace(":", ""); }
         }
 
         public string imei
@@ -100,7 +102,20 @@ namespace SofiAssetReg
             }
         }
 
-  
+
+        public string serialPrefix
+        {
+            get { return _serialPrefix; }
+            set
+            {
+                _serialPrefix = value;
+                _serial = this.serial;
+                if (_initalised)
+                    OnPropertyChanged("serialPrefix");
+            }
+        }
+
+
         public string serial
         {
             set
@@ -112,7 +127,7 @@ namespace SofiAssetReg
 
             get
             {
-               if (autoSerial && _initalised)
+                if (autoSerial && _initalised)
                     return Render.StringToString(this._serialFormat, this.ToDictionary(true, "serial"));
                 return _serial;
             }
@@ -120,7 +135,7 @@ namespace SofiAssetReg
         }
 
 
-        
+
 
         public string zwave
         {
@@ -132,6 +147,8 @@ namespace SofiAssetReg
                     OnPropertyChanged("zwave");
             }
         }
+
+
 
         [NotifyPropertyChangedInvocator]
         protected virtual void OnPropertyChanged([CallerMemberName] string property = null)
@@ -148,9 +165,9 @@ namespace SofiAssetReg
 
         public Dictionary<string, object> ToDictionary()
         {
-           var result = this.GetType()
-                .GetProperties(BindingFlags.Instance | BindingFlags.Public)
-                .ToDictionary(prop => prop.Name, prop => prop.GetValue(this, null));
+            var result = this.GetType()
+                 .GetProperties(BindingFlags.Instance | BindingFlags.Public)
+                 .ToDictionary(prop => prop.Name, prop => prop.GetValue(this, null));
 
             return result;
         }
@@ -164,13 +181,14 @@ namespace SofiAssetReg
                     .ToDictionary(prop => prop.Name.ToUpper(), prop => prop.GetValue(this, null));
                 return result;
             }
-            else { 
+            else
+            {
                 var result = this.GetType()
                     .GetProperties(BindingFlags.Instance | BindingFlags.Public)
                     .ToDictionary(prop => prop.Name, prop => prop.GetValue(this, null));
                 return result;
             }
-        
+
         }
 
         public Dictionary<string, object> ToDictionary(bool KeyIsUpper, string ignoreField)
@@ -179,7 +197,7 @@ namespace SofiAssetReg
             {
                 var result = this.GetType()
                     .GetProperties(BindingFlags.Instance | BindingFlags.Public)
-                    .Where(prop=>prop.Name != ignoreField)
+                    .Where(prop => prop.Name != ignoreField)
                     .ToDictionary(prop => prop.Name.ToUpper(), prop => prop.GetValue(this, null));
                 return result;
             }
